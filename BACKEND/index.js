@@ -18,6 +18,9 @@ const knex = require("knex");
 const cors = require("cors");
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 var bodyParser = require("body-parser");
+
+app.use(cors());
+app.options("*", cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -29,7 +32,6 @@ const db = knex({
   },
 });
 
-app.use(cors());
 let a;
 
 //---------------------------------------------///
